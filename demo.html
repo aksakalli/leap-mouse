@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>leap-mouse demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <style>
+
+    body {
+      font-family: arial;
+    }
+    #demo-link-container {
+      width: 150%;
+    }
+
+    #demo-link-container > a {
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      display: block;
+      float: left;
+      background: yellow;
+      text-align: center;
+      line-height: 100px;
+      font-size: 25px;
+      text-decoration: none;
+      color:white;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo-link-container"></div>
+  <!--script src="bower_components/leapjs/leap-0.6.4.js"></script>
+  <script src="src/leapmouse.js"></script-->
+<script src="build/leapmouse.min.js"></script>
+  <script>
+
+    var leapMouse = new LeapMouse();
+
+
+    var container = document.getElementById('demo-link-container')
+    for (var i = 1; i < 361; i++) {
+      var elm = document.createElement("a");
+      elm.href = '#link-' + i;
+      elm.innerHTML = i;
+      elm.onclick = (function(i) {
+        return function() {
+          console.log('Clicked link: ' + i)
+        }
+      })(i)
+      elm.style.backgroundColor = color_from_hue(i);
+      container.appendChild(elm);
+    }
+
+    // taken from http://rainbowcoding.com/how-to-create-rainbow-text-in-html-css-javascript/
+    function color_from_hue(hue) {
+      var h = hue / 60;
+      var c = 255;
+      var x = (1 - Math.abs(h % 2 - 1)) * 255;
+      var color;
+
+      var i = Math.floor(h);
+      if (i == 0) color = rgb_to_hex(c, x, 0);
+      else if (i == 1) color = rgb_to_hex(x, c, 0);
+      else if (i == 2) color = rgb_to_hex(0, c, x);
+      else if (i == 3) color = rgb_to_hex(0, x, c);
+      else if (i == 4) color = rgb_to_hex(x, 0, c);
+      else color = rgb_to_hex(c, 0, x);
+      return color;
+    }
+
+    function rgb_to_hex(red, green, blue) {
+      var h = ((red << 16) | (green << 8) | (blue)).toString(16);
+      // add the beginning zeros
+      while (h.length < 6) h = '0' + h;
+      return '#' + h;
+    }
+
+
+  </script>
+</body>
+
+</html>

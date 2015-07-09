@@ -1,0 +1,37 @@
+{
+  "name": "leap-mouse",
+  "version": "0.0.0",
+  "homepage": "https://github.com/aksakalli/leap-mouse",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aksakalli/leap-mouse.git"
+  },
+  "authors": [
+    "Can Guney Aksakalli <cgaksakalli@gmail.com>"
+  ],
+  "description": "Leap Motion controller mouse for websites.",
+  "main": "./dist/leap-mouse.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "leapmotion",
+    "leap",
+    "motion",
+    "mouse",
+    "cursor"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    ".gitignore",
+    ".editorconfig",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leapjs": "0.x"
+  }
+}
