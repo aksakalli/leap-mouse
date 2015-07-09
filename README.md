@@ -15,7 +15,7 @@ You can try right now on your website by including this:
 ## Install with Bower
 
 ```
-$ bower install angular-bootstrap
+$ bower install leap-mouse
 ```
 
 ## Usage
